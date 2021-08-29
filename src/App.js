@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import groceries from './groceries';
-import GroceryList from "./GroceryList"
+import GroceryList from "./GroceryList";
 import './App.css';
 
 export default class App extends Component {

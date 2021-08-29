@@ -10,17 +10,18 @@ class GroceryList extends Component {
         // to update inShoppingCart to switch from true to false
         // then the if changes to else
         this.setState({
-            // the state we're trying to update:
-            inShoppingCart: true
+            // updating inShoppingCart to the opposite with !
+            inShoppingCart: !this.state.inShoppingCart
         })
     }
 
     render() {
         return (
-            <div>
+            <div onClick={this.toggleCart}>
+                
                 {/* Ternary Operator = if/else function */}
-                {this.props.groceries.item} {this.props.groceries.quantity} {this.props.groceries.units} {this.state.inShoppingCart ? <span>PURCHASED!</span>:""}
-            </div>
+                {this.props.groceries.item} {this.props.groceries.quantity} {this.props.groceries.units} {this.state.inShoppingCart ? <span>PURCHASED!</span>:"hii"}
+           </div>
         );
     }
 }
