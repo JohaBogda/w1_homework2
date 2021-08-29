@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import groceries from './groceries';
+import GroceryList from "./GroceryList"
 import './App.css';
 
 export default class App extends Component {
@@ -35,7 +36,13 @@ export default class App extends Component {
     }
     // adding new item to state.groceries: 
     this.setState({
-      groceries: [newItem, ...this.state.groceries]
+      groceries: [newItem, ...this.state.groceries],
+    
+      // to clear the input field without having to delete the old add item:
+      // reset state to default:
+      item: "",
+      quantity: 0,
+      units: "",
     })
   }
 
@@ -69,6 +76,7 @@ export default class App extends Component {
         </div>
         
       </div>
+      
     );
   }
 }
