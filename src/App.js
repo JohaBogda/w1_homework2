@@ -12,7 +12,17 @@ export default class App extends Component {
     item: "",
     quantity: "",
     units: "",
+    inShoppingCart: false
   };
+
+  toggleCart= () => {
+    // to update inShoppingCart to switch from true to false
+    // then the if changes to else
+    this.setState({
+        // updating inShoppingCart to the opposite with !
+        inShoppingCart: !this.state.inShoppingCart
+    })
+};
 
   handleChange = (event) => {
     // console.log(event.target.value)
@@ -44,6 +54,8 @@ export default class App extends Component {
       quantity: 0,
       units: "",
     })
+
+    this.toggleCart()
   }
 
   render() {
@@ -56,7 +68,8 @@ export default class App extends Component {
           )
         })}
         </div>
-        <div>
+
+        {this.state.inShoppingCart ? <div><GroceryList groceries={this.state}/> <button onClick={this.toggleCart}>Add more</button></div> : <div>
           <h1>Add new item to Grocery List</h1>
           {/* forms should always come with label to make it look nice/ accessibility and input to type text into */}
           <form onSubmit={this.handleSubmit}>
@@ -73,7 +86,9 @@ export default class App extends Component {
             {/* input with submit type becomes a button to submit */}
             <input type="submit"/>
           </form>
-        </div>
+        </div>} 
+        
+        {/* NEED THIS - DISCUSSED WITH AVA */}
         
       </div>
       
